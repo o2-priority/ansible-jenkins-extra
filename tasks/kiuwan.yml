@@ -1,0 +1,28 @@
+---
+- name: Install Kiuwan agent
+  shell: "aws --region eu-west-1 s3 cp {{ jenkins_extra_kiuwan_artifact_path }} /tmp/KiuwanLocalAnalyzer.zip"
+  environment:
+    AWS_PROFILE: "o2priority_ref"
+  become: false
+  delegate_to: localhost
+
+- name: Create directory
+  file:
+    path: "{{ jenkins_slave_home }}/KiuwanLocalAnalyzer/"
+    group: "{{ jenkins_slave_user }}"
+    owner: "{{ jenkins_slave_user }}"
+    state: directory
+
+- name: Unzip Kiuwan agent
+  unarchive:
+    src:  "/tmp/KiuwanLocalAnalyzer.zip"
+    dest: "{{ jenkins_slave_home }}/"
+    group: "{{ jenkins_slave_user }}"
+    owner: "{{ jenkins_slave_user }}"
+
+- name: Set execute permissions
+  file:
+    path: "{{ jenkins_slave_home }}/KiuwanLocalAnalyzer/kiuwan.sh"
+    group: "{{ jenkins_slave_user }}"
+    owner: "{{ jenkins_slave_user }}"
+    mode: 0700

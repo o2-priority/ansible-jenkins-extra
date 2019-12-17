@@ -17,6 +17,7 @@ jenkins_extra_login_pass:       ''        # 'password' for auth to Jenkins
 jenkins_extra_jenkins_major_release:  2   # jenkins major release 
 jenkins_extra_jenkins_role: master
 
+jenkins_extra_kiuwan_artifact_path: "s3://priority-infra-nonprod/resources/KiuwanLocalAnalyzer.zip"
 
 ######################
 ##  Example config  ##
