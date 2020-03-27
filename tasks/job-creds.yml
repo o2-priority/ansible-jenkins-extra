@@ -46,15 +46,16 @@
   when: item.type == 'userpass'
   no_log: true
 
-  #- name: Create ssh private credentials config on Jenkins
-  #  command: >
-  #      python {{ jenkins_extra_home }}/create-credentials-config.py ssh-private-key \
-  #        -I {{ item.id }} -D {{ item.description }} \
-  #        -U {{ item.user }} -F {{ item.key_file }} \
-  #        {{ jenkins_extra_login_opts|default('') }}
-  #  with_items: "{{ jenkins_extra_job_creds_config }}"
-  #  when: item.type == 'ssh-private-key'
-  #  no_log: true
+  # This was commented for some reason. But I'm removing the comment now as I need the ssh keys created.
+  - name: Create ssh private credentials config on Jenkins
+   command: >
+       python {{ jenkins_extra_home }}/create-credentials-config.py ssh-private-key \
+         -I {{ item.id }} -D {{ item.description }} \
+         -U {{ item.user }} -F {{ item.key_file }} \
+         {{ jenkins_extra_login_opts|default('') }}
+   with_items: "{{ jenkins_extra_job_creds_config }}"
+   when: item.type == 'ssh-private-key'
+   no_log: true
 
 - name: Create secret text credentials config on Jenkins
   command: >
