@@ -55,7 +55,7 @@
         {{ jenkins_extra_login_opts|default('') }}
   with_items: "{{ jenkins_extra_job_creds_config }}"
   when: item.type == 'ssh-private-key'
-  no_log: true
+  no_log: false
 
 - name: Create secret text credentials config on Jenkins
   command: >
