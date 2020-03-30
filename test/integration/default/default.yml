@@ -19,6 +19,6 @@
       with_items: [ awscli, requests ]
 
   roles:
-    - wunzeco.java
-    - wunzeco.jenkins
+    - o2-priority.java
+    - o2-priority.jenkins
     - ansible-jenkins-extra

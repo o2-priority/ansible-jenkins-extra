@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-jenkins_extra_home = "/var/lib/jenkins"
+jenkins_extra_home = "/mnt/jenkins"
 
 describe file("#{jenkins_extra_home}/.aws/credentials") do
   it { should be_file }
