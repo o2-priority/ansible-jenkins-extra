@@ -60,7 +60,7 @@
 - name: Create secret text credentials config on Jenkins
   command: >
       python {{ jenkins_extra_home }}/create-credentials-config.py secret-text \
-        -I {{ item.id }} -D {{ item.description }} -T {{ item.secret }} \
+        -I {{ item.id }} -D {{ item.description }} -T '{{ item.secret }}' \
         {{ jenkins_extra_login_opts|default('') }}
   with_items: "{{ jenkins_extra_job_creds_config }}"
   when: item.type == 'secret-text'
