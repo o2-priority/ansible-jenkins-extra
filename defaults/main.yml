@@ -14,7 +14,9 @@ jenkins_extra_ssh_keys:         []        # See example below
 jenkins_extra_login_user:       ''        # 'username' for auth to Jenkins
 jenkins_extra_login_pass:       ''        # 'password' for auth to Jenkins
 
-jenkins_extra_jenkins_major_release:  2   # jenkins major release 
+jenkins_extra_mongo_atlas_creds : []
+
+jenkins_extra_jenkins_major_release:  2   # jenkins major release
 jenkins_extra_jenkins_role: master
 
 jenkins_extra_kiuwan_artifact_path: "s3://priority-infra-nonprod/resources/KiuwanLocalAnalyzer.zip"
@@ -42,17 +44,27 @@ jenkins_extra_kiuwan_artifact_path: "s3://priority-infra-nonprod/resources/Kiuwa
 #     user: jenkins
 #     pass: P@ssword!
 #     type: userpass
-# 
-# 
+#
+#
 # #######################
-# ##  AWS Credentials  ## 
+# ##  AWS Credentials  ##
 # #######################
 # jenkins_extra_aws_creds:
 #   - profile: default
 #     aws_access_key_id: 'someAwsAccessKeyId'
 #     aws_secret_access_key: 'someAwsSecretAccessKey'
 #     region: 'eu-central-1'
-# 
+
+###############################
+##  Jenkins Mongo Atlas Credentials  ##
+###############################
+# jenkins_extra_mongo_atlas_creds:
+#   - profile: default
+#     atlas_public_key: 'buegmyvw'
+#     atlas_private_key: 'f5a8d716-3757-4f1c-afb3-ba6174cc19e4'
+#     atlas_org_id: '620679a2c60a6311a2b8e189'
+#     atlas_output: 'json'
+#
 # ################################
 # ##  Jenkins SSH Keys - START  ##
 # ################################

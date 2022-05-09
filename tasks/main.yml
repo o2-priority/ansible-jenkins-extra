@@ -16,3 +16,6 @@
 - name: Setup Kiuwan
   include: kiuwan.yml
   when: jenkins_extra_jenkins_role == 'slave'
+
+- name: Setup mongo atlas config
+  include: mongo-atlas.yml
