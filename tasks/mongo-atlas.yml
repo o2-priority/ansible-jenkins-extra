@@ -1,0 +1,33 @@
+---
+
+- name: Set mongo atlas org id profile
+  command : atlas config set org_id {{ item.atlas_org_id }}
+  with_items: "{{ jenkins_extra_mongo_atlas_creds }}"
+  when: item.profile == 'default'
+  become: yes
+  become_user: "{{ jenkins_extra_user }}"
+  no_log: true
+
+- name: Set mongo atlas public key
+  command : atlas config set public_api_key {{ item.atlas_public_key }}
+  with_items: "{{ jenkins_extra_mongo_atlas_creds }}"
+  when: item.profile == 'default'
+  become: yes
+  become_user: "{{ jenkins_extra_user }}"
+  no_log: true
+
+- name: Set mongo atlas public key
+  command : atlas config set private_api_key {{ item.atlas_private_key }}
+  with_items: "{{ jenkins_extra_mongo_atlas_creds }}"
+  when: item.profile == 'default'
+  become: yes
+  become_user: "{{ jenkins_extra_user }}"
+  no_log: true
+
+- name: Set mongo atlas output
+  command : atlas config set output {{ item.atlas_output }}
+  with_items: "{{ jenkins_extra_mongo_atlas_creds }}"
+  when: item.profile == 'default'
+  become: yes
+  become_user: "{{ jenkins_extra_user }}"
+  no_log: true
