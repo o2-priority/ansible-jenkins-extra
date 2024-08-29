@@ -1,3 +1,4 @@
+# coding: utf8
 #!/usr/bin/env python
 #
 # Description:  
@@ -16,7 +17,6 @@
 # Version:      0.1
 #
 ###############################################################################
-# coding: utf8
 
 import argparse
 import requests
