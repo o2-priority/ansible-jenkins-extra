@@ -42,6 +42,8 @@
         -I {{ item.id }} -D {{ item.description }} \
         -U {{ item.user }} -P {{ item.pass }} \
         {{ jenkins_extra_login_opts|default('') }}
+  environment:
+     PYTHONIOENCODING: "utf-8"
   with_items: "{{ jenkins_extra_job_creds_config }}"
   when: item.type == 'userpass'
   no_log: false
